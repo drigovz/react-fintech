@@ -47,9 +47,10 @@ jobs:
         run: |
           npm install -g surge
 
-      - name: Deploy to Surge
-        uses: dswistowski/surge-sh-action@v1
-        with:
-          domain: 'reactfintech.surge.sh'
-          project: 'dist'
-          token: ${{ secrets.SURGE_TOKEN }}
+      - name: Surge Login
+        run: |
+          npx surge login --token ${{ secrets.SURGE_TOKEN }}
+
+      - name: Deploy
+        run: |
+          npx surge ./dist reactfintech.surge.sh --token ${{ secrets.SURGE_TOKEN }}
