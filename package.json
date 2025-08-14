@@ -9,6 +9,7 @@
     "npm": "^11.2.0",
     "yarn": "^1.22.22"
   },
+  "homepage": "https://drigovz.github.io/react-fintech",
   "scripts": {
     "dev": "vite",
     "start": "vite --host",
@@ -19,9 +20,12 @@
     "test": "vitest",
     "test-watch": "vitest --watch",
     "test-coverage": "vitest run --coverage",
-    "test-coverage-report": "npx open-cli coverage/index.html"
+    "test-coverage-report": "npx open-cli coverage/index.html",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "gh-pages": "^6.3.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.2",
