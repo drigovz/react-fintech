@@ -43,7 +43,13 @@ jobs:
       - name: Build the application
         run: npm run build
 
-      - name: Deploy application
+      - name: Install surge
         run: |
           npm install -g surge
-          surge --project ./build --domain react-fintech.surge.sh
+
+      - name: Deploy to Surge
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'reactfintech.surge.sh'
+          project: 'dist'
+          token: ${{ secrets.SURGE_TOKEN }}
